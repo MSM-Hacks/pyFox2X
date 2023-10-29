@@ -18,19 +18,23 @@ obj.putBool('name_2', False)
 
 ### 2. Работа с массивами
 
+```
 from pyfox2x.sfs_types.SFSArray import SFSArray
 
 arr = SFSArray()
 arr.addInt(12)
 arr.addLong(324233242)
+```
 
 
 В данном примере создается массив arr класса SFSArray. С помощью методов addInt и addLong данные добавляются в массив.
 
 ### 3. Получение данных
 
+```
 a: int = obj.getInt('name')
 b: int = arr.getLong(1)
+```
 
 
 В этом примере переменным a и b присваиваются значения, полученные из объекта и массива соответственно.
@@ -39,9 +43,10 @@ b: int = arr.getLong(1)
 
 Чтобы начать использовать pyFox2X, необходимо установить библиотеку и импортировать классы SFSObject и SFSArray из модулей SFSObject и SFSArray соответственно.
 
+```
 from pyfox2x.sfs_types.SFSObject import SFSObject
 from pyfox2x.sfs_types.SFSArray import SFSArray
-
+```
 
 После этого вы можете создавать объекты и массивы данных, добавлять данные в них и получать данные из них, следуя приведенным выше примерам.
 
