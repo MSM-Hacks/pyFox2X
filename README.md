@@ -50,5 +50,40 @@ client.connect(host='127.0.0.1', port=9933)
 client.send_login_request('ZoneName', 'username', 'password', auth_params)
 ```
 
-
 В этом примере создается объект auth_params класса SFSObject, в котором добавляются различные параметры авторизации. Затем создается объект client класса SFSClient и устанавливается соединение с сервером, указывая хост и порт. Наконец, отправляется запрос на авторизацию, указывая название зоны, имя пользователя, пароль и параметры авторизации.
+
+### 4. Общение с сервером
+
+В библиотеке pyFox2X вы можете отправлять запросы на сервер и ожидать ответы от него. Для этого доступны следующие методы:
+
+#### Отправка запроса и ожидание ответа
+
+```python
+player_object = client.request('get_player_data', SFSObject().putLong("last_updated", 0)).get("player_object")
+```
+
+В приведенном примере отправляется запрос с именем 'get_player_data' и параметром 'last_updated'. Ожидается ответ от сервера, и значение поле "player_object" из ответа записывается в переменную 'player_object'.
+
+#### Отправка запроса без ожидания ответа
+
+```python
+client.send_extension_request('collect_coins_from_monster', SFSObject().putLong("user_monster_id", 199))
+```
+
+В этом примере отправляется запрос с именем 'collect_coins_from_monster' и параметром 'user_monster_id'. Запрос отправляется на сервер, но ответ не ожидается.
+
+#### Ожидание ответа без отправки запроса
+
+```python
+response = client.wait_extension_response('giveaway')
+```
+
+В данном примере ожидается ответ от сервера с именем 'giveaway'. Метод блокируется до получения ответа, и значение ответа записывается в переменную 'response'.
+
+#### Ожидание одного из нескольких пакетов
+
+```python
+cmd, response = client.wait_requests(['login_success', 'login_failed', 'player_banned'])
+```
+
+
