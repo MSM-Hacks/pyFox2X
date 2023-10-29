@@ -6,7 +6,7 @@ pyFox2X - это библиотека на языке Python, которая п�
 
 ### 1. Работа с объектами
 
-```
+```python
 from pyfox2x.sfs_types.SFSObject import SFSObject
 
 obj = SFSObject()
@@ -20,7 +20,7 @@ a: int = obj.getInt('name')
 
 ### 2. Работа с массивами
 
-```
+```python
 from pyfox2x.sfs_types.SFSArray import SFSArray
 
 arr = SFSArray()
@@ -34,7 +34,7 @@ b: int = arr.getLong(1)
 
 ### 3. Подключение к серверу
 
-```
+```python
 from pyfox2x.sfs_types.SFSObject import SFSObject
 from pyfox2x.sfs_types.SFSArray import SFSArray
 from pyfox2x.sfs_client import SFSClient
@@ -86,4 +86,7 @@ response = client.wait_extension_response('giveaway')
 cmd, response = client.wait_requests(['login_success', 'login_failed', 'player_banned'])
 ```
 
+В этом примере ожидается поступление одного из пакетов с именами 'login_success', 'login_failed' или 'player_banned'. Метод блокируется до поступления одного из пакетов, а затем возвращается имя пакета и его содержимое в переменные 'cmd' и 'response' соответственно.
+
+Это лишь некоторые примеры использования методов для отправки запросов и получения ответов от сервера. Вы можете адаптировать их под свои нужды в своем проекте.
 
