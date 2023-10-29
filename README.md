@@ -12,6 +12,8 @@ from pyfox2x.sfs_types.SFSObject import SFSObject
 obj = SFSObject()
 obj.putInt('name', 12)
 obj.putBool('name_2', False)
+
+a: int = obj.getInt('name')
 ```
 
 В приведенном примере создается объект obj класса SFSObject. Затем используются методы putInt и putBool для добавления данных в объект.
@@ -24,17 +26,14 @@ from pyfox2x.sfs_types.SFSArray import SFSArray
 arr = SFSArray()
 arr.addInt(12)
 arr.addLong(324233242)
+
+b: int = arr.getLong(1)
 ```
 
 
 В данном примере создается массив arr класса SFSArray. С помощью методов addInt и addLong данные добавляются в массив.
 
 ### 3. Получение данных
-
-```
-a: int = obj.getInt('name')
-b: int = arr.getLong(1)
-```
 
 
 В этом примере переменным a и b присваиваются значения, полученные из объекта и массива соответственно.
