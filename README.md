@@ -34,6 +34,7 @@ b: int = arr.getLong(1)
 
 ### 3. Подключение к серверу
 
+```
 from pyfox2x.sfs_types.SFSObject import SFSObject
 from pyfox2x.sfs_types.SFSArray import SFSArray
 from pyfox2x.sfs_client import SFSClient
@@ -47,6 +48,7 @@ auth_params.putUtfString('client_version', '3.1.1')
 client = SFSClient()
 client.connect(host='127.0.0.1', port=9933)
 client.send_login_request('ZoneName', 'username', 'password', auth_params)
+```
 
 
 В этом примере создается объект auth_params класса SFSObject, в котором добавляются различные параметры авторизации. Затем создается объект client класса SFSClient и устанавливается соединение с сервером, указывая хост и порт. Наконец, отправляется запрос на авторизацию, указывая название зоны, имя пользователя, пароль и параметры авторизации.
